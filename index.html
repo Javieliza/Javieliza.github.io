@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Portafolio | Javiera Elizabeth Moyano</title>
+  <meta name="description" content="Licenciada en Ciencias Jurídicas - Portafolio profesional de servicios jurídicos, escritos académicos y más.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #c9a55c;
+      --gold-light: #d4b76a;
+      --red: #a33b2e;
+      --burgundy: #722f37;
+      --burgundy-dark: #5a252c;
+      --dark-brown: #3d2b1f;
+      --cream: #f5f0e8;
+      --dark-bg: #2a2a2a;
+      --title-color: #693234;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--dark-brown);
+      line-height: 1.6;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: relative;
+      text-align: center;
+      background-image: url('./img/fondo.png');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+    }
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('./img/fondo.png');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  filter: blur(1.5px);
+  transform: scale(1.02);
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
+}
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(29, 32, 45, 0.5) 100%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 2;
+      height: 80px;
+      width: auto;
+      margin: 12px auto 5px;
+      display: block;
+    }
+
+    /* NAV FULL WIDTH */
+    nav {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      border-top: 4px solid var(--gold);
+      border-bottom: 4px solid var(--gold);
+
+      height: 64px; /* 🔥 AÑADIR */
+      display: flex;
+      align-items: center;
+    }
+
+    /* CONTENEDOR CENTRADO */
+    nav .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    /* LINKS */
+    nav .nav-inner a {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 12px 18px; /* 🔥 más alto */
+      transition: all 0.3s ease;
+      white-space: nowrap;
+
+      display: flex; /* 🔥 clave */
+      align-items: center;
+      height: 100%;
+      position: relative;
+    }
+
+    /* 🔥 HOVER DORADO */
+    nav .nav-inner a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(201, 165, 92, 0.25); /* dorado suave */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    nav .nav-inner a:hover::before {
+      opacity: 1;
+    }
+
+    nav .nav-inner a:hover {
+      color: #fff;
+    }
+
+    /* 🔥 ACTIVE (OCUPA TODO) */
+    nav .nav-inner a.active {
+      background: linear-gradient(
+        90deg,
+        var(--gold),
+        var(--gold-light)
+      );
+      color: #000;
+    }
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 5%;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(29, 32, 45, 0.35) 0%, rgba(29, 32, 45, 0.15) 60%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* CONTENIDO */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* TEXTO */
+    .hero-text {
+      max-width: 600px; /* 🔥 más espacio para que no corte */
+      
+      position: relative;
+      top: -120px; /* 🔥 sube el bloque */
+    }
+
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 52px; /* 🔥 un poco más grande */
+      font-weight: 700;
+      color: var(--title-color);
+      line-height: 1.15; /* 🔥 más aire */
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    /* separación del apellido */
+    .hero-text .apellido {
+      display: block;
+      margin-top: 14px; /* 🔥 aire entre nombre y apellido */
+      letter-spacing: 2px; /* 🔥 toque premium */
+    }
+
+    .hero-text p {
+      font-size: 15px;
+      color: #e0e0e0;
+      margin-bottom: 6px;
+    }
+    /* BOTÓN */
+    .btn-cv {
+      display: inline-block;
+      margin-top: 24px;
+    }
+
+    .btn-cv img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* IMAGEN FULL SCREEN */
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%; /* 🔥 antes top → ahora sube el contenido */
+      display: block;
+    }
+    /* ========== LINEA DORADA DIVISORIA ========== */
+    .gold-line {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    }
+
+    /* ========== PERFIL SECTION ========== */
+    .perfil-section {
+      background-image: url('./img/fondoAREASINTERES.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      padding: 120px 5% 120px;
+    }
+
+    .perfil-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .perfil-col {
+      flex: 0.9;
+      min-width: 220px;
+      transform: translateX(65px); /* 🔥 control real */
+    }
+
+    .perfil-col h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark-brown);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .perfil-col ul {
+      list-style: none;
+    }
+
+    .perfil-col ul li {
+      font-size: 14px;
+      color: var(--dark-brown);
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.4;     /* 🔥 más aire entre líneas */
+      max-width: 295px;    /* 🔥 controla el corte */
+    }
+
+    .perfil-col ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--dark-brown);
+    }
+
+    .perfil-card {
+      flex: 1.5;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid #cfc8b8;
+      border-radius: 6px;
+      padding: 22px 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      
+      transform: translateX(60px); /* 🔥 control real */
+    }
+
+    .perfil-card h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--dark-brown);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .perfil-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--dark-brown);
+      text-align: justify;
+    }
+
+    /* ========== EXPLORA SECTION ========== */
+    .explora-section {
+      background-image: url('./img/fondoEXPLORALAWEB.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      padding: 130px 5% 100px;
+    }
+
+    .explora-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center; /* 🔥 centra título + grid */
+    }
+
+    .explora-section h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 35px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .explora-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 300px); /* 🔥 control total */
+      gap: 28px; /* 🔥 más aire */
+      
+      max-width: 900px;
+      margin: 0 auto; /* 🔥 centra el bloque */
+      justify-content: center;
+    }
+
+    .explora-btn {
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .explora-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .explora-btn img {
+      width: 100%;
+      max-width: 350px; /* 🔥 antes ~260 → ahora más grande */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ========== DESCARGAS (AHORA DENTRO DE EXPLORA) ========== */
+
+    .descargas-container {
+      margin-top: 100px;
+
+      display: flex;
+      justify-content: space-between; /* 🔥 separa izquierda/derecha */
+      align-items: center;
+
+      max-width: 1010px; 
+      width: 100%;
+    }
+
+    .descargas-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .descargas-left h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .descargas-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center; /* 🔥 centra links */
+    }
+
+    .descargas-links a {
+      font-size: 16px;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .descargas-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .descargas-links a img {
+      width: 20px;
+      height: auto;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 30px;
+      justify-content: center; /* 🔥 centrado */
+    }
+
+    .social-icons a {
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.08);
+    }
+
+    .social-icons img {
+      width: 55px;
+      height: auto;
+    }
+    /* ========== FOOTER ========== */
+    footer {
+      position: relative;
+      padding: 28px 5% 22px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    footer::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('./img/fondo.png');
+      background-size: cover;
+      background-position: center 100%;
+      background-repeat: no-repeat;
+      filter: blur(1.2px);
+      transform: scale(1.02);
+      z-index: 0;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(29, 32, 45, 0.5);
+      z-index: 1;
+    }
+
+    footer p, footer .disclaimer {
+      position: relative;
+      z-index: 2;
+      color: var(--gold);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    footer .disclaimer {
+      font-size: 11px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .footer-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* 🔥 FULL WIDTH */
+      height: 4px;
+      background: var(--gold);
+      z-index: 3;
+    }
+    /* ========== MENU MOVIL ========== */
+    .mobile-menu-btn {
+      display: none;
+      width: 45px;
+      height: 35px;
+      background: var(--burgundy);
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 5px;
+      z-index: 200;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    /* TABLET */
+    @media (max-width: 900px) {
+
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        top: 0;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
+      }
+
+      .perfil-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .perfil-col,
+      .perfil-card {
+        transform: none !important;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .perfil-col {
+        text-align: left;
+        padding-left: 20px;
+      }
+
+      .perfil-col ul li {
+        max-width: 100%;
+      }
+
+      .explora-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .descargas-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(22, 22, 30, 0.97);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-top: none;
+        border-bottom: 2px solid var(--gold);
+        height: auto;
+        padding: 10px 0;
+        z-index: 999;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav .nav-inner {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        gap: 0;
+      }
+
+      nav .nav-inner a {
+        width: 100%;
+        justify-content: center;
+        height: auto;
+        padding: 14px 0;
+        font-size: 1.1rem;
+      }
+
+      .logo {
+        height: 70px;
+      }
+
+      .hero {
+        min-height: 60vh;
+        height: auto;
+        padding: 60px 5% 42px;
+        align-items: flex-end;
+      }
+
+      .hero-content {
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding-bottom: -60px;
+      }
+
+      .hero-text {
+        text-align: left;
+        padding: 20px 0;
+      }
+
+      .hero-text h1 {
+        font-size: 28px;
+      }
+
+      .btn-cv img {
+        height: 40px;
+      }
+
+      .hero-image img {
+        object-position: 100% top;
+      }
+
+      .explora-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .explora-btn img {
+        max-width: 100%;
+      }
+
+      .descargas-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .descargas-links {
+        align-items: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    /* MOBILE PEQUEÑO */
+    @media (max-width: 480px) {
+
+      .hero-text h1 {
+        font-size: 22px;
+      }
+
+      .hero-text p {
+        font-size: 12px;
+      }
+
+      .perfil-col h3,
+      .perfil-card h3 {
+        font-size: 18px;
+      }
+
+      .perfil-col ul li,
+      .perfil-card p {
+        font-size: 13px;
+      }
+
+      .explora-section h2 {
+        font-size: 18px;
+      }
+
+      .explora-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .descargas-left h3 {
+        font-size: 16px;
+      }
+
+      .descargas-links a {
+        font-size: 13px;
+      }
+
+      .social-icons img {
+        width: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="./img/escudo_dorado.png" alt="Escudo" class="logo">
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="active">Inicio</a>
+    <a href="#perfil">Perfil</a>
+    <a href="#escritos">Escritos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#libros">Libros</a>
+    <a href="#musica">Música</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="./img/IMAGENCENTRAL.png" alt="Javiera Elizabeth Moyano">
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Lic. Javiera Elizabeth<br>Moyano</h1>
+        <p>Licenciada en Ciencias Jurídicas, 2025 (título en trámite)</p>
+        <p>Enfoque: <em>ius</em>privatista y economicista del Derecho.</p>
+      <a href="https://drive.usercontent.google.com/u/1/uc?id=18esipU0cp2K8Yo9JmKHNK0fFStFHk-ZG&export=download" 
+        class="btn-cv" 
+        target="_blank">
+        <img src="./img/boton_descarga_cv.png" alt="Descarga mi Curriculum">
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <section class="perfil-section" id="perfil">
+    <div class="perfil-container">
+      <div class="perfil-col">
+        <h3>Áreas de Interés:</h3>
+        <ul>
+          <li>Derecho Civil</li>
+          <li>Derecho Comercial</li>
+          <li>Derecho Económico</li>
+          <li>Filosofía del Derecho</li>
+          <li>Teoría del Derecho</li>
+          <li>Análisis Económico del Derecho (AED) con enfoque praxeológico e iusnaturalista</li>
+        </ul>
+      </div>
+      <div class="perfil-card">
+        <h3>Perfil:</h3>
+        <p>Concibo el Derecho como un sistema normativo orientado a la protección de la vida, la libertad, la propiedad y la responsabilidad personal. Mi interés se centra en el análisis riguroso de los fundamentos filosóficos y constitucionales del orden jurídico, y en las consecuencias prácticas de las normas. Aspiro a ser una jurista crítica, sólida y reflexiva, capaz de aplicar la teoría a problemas concretos del Derecho privado y económico.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <section class="explora-section" id="explora">
+    <div class="explora-container">
+
+      <h2>Explorá la Web:</h2>
+
+      <div class="explora-grid">
+        <a href="#perfil" class="explora-btn">
+          <img src="./img/boton_perfil.png" alt="Perfil">
+        </a>
+        <a href="#escritos" class="explora-btn" id="escritos">
+          <img src="./img/boton_escritosl.png" alt="Escritos">
+        </a>
+        <a href="#servicios" class="explora-btn" id="servicios">
+          <img src="./img/boton_serviciosl.png" alt="Servicios">
+        </a>
+        <a href="#libros" class="explora-btn" id="libros">
+          <img src="./img/boton_libros.png" alt="Libros">
+        </a>
+        <a href="#musica" class="explora-btn" id="musica">
+          <img src="./img/boton_musica.png" alt="Musica">
+        </a>
+        <a href="#contacto" class="explora-btn" id="contacto">
+          <img src="./img/boton_conntactol.png" alt="Contacto">
+        </a>
+      </div>
+
+      <!-- 🔥 DESCARGAS UNIDAS -->
+      <div class="descargas-container">
+
+        <div class="descargas-left">
+          <h3>Descargas Importantes:</h3>
+
+          <div class="descargas-links">
+              <a href="https://drive.usercontent.google.com/u/1/uc?id=1VeoskD2YyKK-xd1lvbs9nx0rvi0__QV7&export=download" target="_blank">
+                &#9656; Descargá mi <em>Portafolios edición PDF</em>
+                <img src="./img/iconpdf.png" alt="PDF">
+              </a>
+            <a href="https://drive.usercontent.google.com/u/1/uc?id=18esipU0cp2K8Yo9JmKHNK0fFStFHk-ZG&export=download" target="_blank">
+              &#9656; Descargá mi <em>Currículum Vitae (CV)</em>
+              <img src="./img/iconpdf.png" alt="PDF">
+            </a>
+          </div>
+        </div>
+
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">
+            <img src="./img/insta.png" alt="Instagram">
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <img src="./img/linkeding.png" alt="LinkedIn">
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-line"></div>
+    <p>©2026 Javiera Elizabeth Elio Moyano Montenegro</p>
+    <p class="disclaimer">Los servicios jurídicos ofrecidos se prestan exclusivamente en la jurisdicción de la República de Chile y se rigen por la legislación chilena, excluyéndose cualquier otra jurisdicción o derecho aplicable.</p>
+  </footer>
+
+    <script>
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('mainNav');
+
+      if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+          });
+        });
+      }
+    </script>
+  </script>
+</body>
+</html>
